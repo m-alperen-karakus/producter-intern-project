@@ -1,4 +1,27 @@
-/* Rubik Font Import */
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-/* Inter Font Import */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap')
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+    height: 100vh;
+
+    .card{
+        background: #FFFFFF;
+        box-shadow: 0px 0px 4px rgba(0, 23, 71, 0.15);
+        border-radius: 32px;
+        padding: 64px 200px;
+    }
+    .developerSignature{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #FFFFFF;
+        padding: 14px 24px;
+        border-radius: 8px;
+        width: max-content;
+        p{
+            margin: 0px 12px 0px 0px;
+        }
+    }
+}
