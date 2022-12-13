@@ -1,8 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
-import Header from "./components/header";
-import Form from "./components/form";
-import List from "./components/list";
+import Header from "./components/Header/header";
+import Form from "./components/Form/form";
+import List from "./components/List/list";
 
 function App() {
   return (

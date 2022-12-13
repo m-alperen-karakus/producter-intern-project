@@ -2,7 +2,7 @@ export default function Header(props){
 
     return (
         <div>
-            Header works
+            Daily To Do List
         </div>
     )
 
