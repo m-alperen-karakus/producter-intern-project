@@ -1,0 +1,46 @@
+.tasks {
+  list-style-type: none;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+    .complated{
+        color: #8F98A8 !important;
+        text-decoration: line-through;
+        .circle{
+            background: #00d8a7;
+            img{
+                display: block !important;
+            }
+        }
+    }
+  .task {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: #001747;
+    font-weight: 500;
+    font-size: 16px;
+    .circle {
+      width: 32px;
+      height: 32px;
+      border: 1px solid #eeeeee;
+      border-radius: 100%;
+      display: flex;
+      padding: 8px;
+      img {
+        display: none;
+        transform: scale(0.8);
+      }
+    }
+    &:hover {
+      .circle {
+        border: 1px solid rgba(45, 112, 253, 0.15);
+        border: 1px solid rgba(45, 112, 253, 0.15);
+      }
+
+      color: #2d70fd;
+    }
+  }
+}
