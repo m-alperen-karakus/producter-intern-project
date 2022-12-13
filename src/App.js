@@ -1,5 +1,5 @@
 import logo from "./logo.svg";
-import "./App.css";
+import "./App.scss";
 import Header from "./components/Header/header";
 import Form from "./components/Form/form";
 import List from "./components/List/list";

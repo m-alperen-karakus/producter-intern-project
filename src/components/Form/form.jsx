@@ -1,8 +1,11 @@
+import "./form.scss"
+
 export default function Form(props){
 
     return (
-        <div>
-            Form works
+        <div className="form">
+            <input placeholder="Add new button" />
+            <button>Add</button>
         </div>
     )
 

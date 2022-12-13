@@ -1,0 +1,27 @@
+.form{
+    border: 1px solid #EEEEEE;
+    border-radius: 8px;
+    padding: 8px;
+    width: fit-content;
+    input{
+        font-family: 'Inter';
+        background: none;
+        border: none;
+        &:focus{
+            outline: none !important;
+        }
+        &::placeholder{
+            color: #B1BACB;
+        }        
+    }
+
+    button{
+        background: #2D70FD;
+        border-radius: 4px;
+        padding: 12px 24px;
+        border: none;
+        color: #FFFFFF;
+        font-weight: 500;
+        font-size: 18px;
+    }
+}
