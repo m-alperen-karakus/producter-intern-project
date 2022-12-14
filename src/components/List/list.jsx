@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Icon from "../../assets/listItemComplatedIcon.svg";
+import { GetTasks } from "../../services/crud.service";
 import "./list.scss";
 export default function List(props) {
   const task = [
@@ -67,17 +68,7 @@ export default function List(props) {
       );
     }
   });
-
-  // function convertDone(id){
-  //     task.map((task)=>{
-  //         if(id === task.id)
-  //         {
-  //             task.isComplated=!task.isComplated
-  //         }
-
-  //     })
-  // }
-
+  console.log(GetTasks())  
   return (
     <div>
       <ul className="tasks">{tasks}</ul>
