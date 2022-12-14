@@ -24,13 +24,7 @@ export default function List() {
   const tasks = data.map((task) => {
     if (task.isComplated) {
       return (
-        <li
-          key={task.id}
-          className="task complated"
-          onClick={() => {
-            updateStatus(task.id);
-          }}
-        >
+        <li key={task.id} className="task complated" onClick={() => updateStatus(task.id)} >
           <div className="circle">
             <img src={Icon} alt="complated icon" />
           </div>
@@ -39,13 +33,7 @@ export default function List() {
       );
     } else {
       return (
-        <li
-          key={task.id}
-          className="task"
-          onClick={() => {
-            updateStatus(task.id);
-          }}
-        >
+        <li key={task.id} className="task" onClick={() => updateStatus(task.id) }>
           <div className="circle">
             <img src={Icon} alt="complated icon" />
           </div>
@@ -59,10 +47,12 @@ export default function List() {
       <ul className="tasks">{tasks}</ul>
       <hr />
       <div className="buttonGroup">
-        <div className="listLength">{data.filter( item => item.isComplated).length} task complated</div>
-        <div style={{ "cursor":"pointer" }} onClick={()=>{
-          DeleteTask().then(()=> console.log("Complated tasks has been deleted")).catch((err)=> console.log(err))
-        }}>Clear all complated tasks</div>
+        <div className="listLength">
+          {data.filter((item) => item.isComplated).length} task complated
+        </div>
+        <div style={{ cursor: "pointer" }} onClick={() => DeleteTask()} >
+          Clear all complated tasks
+        </div>
       </div>
     </div>
   );

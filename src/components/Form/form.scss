@@ -1,12 +1,14 @@
 .form{
     border: 1px solid #EEEEEE;
     border-radius: 8px;
-    padding: 8px;
-    width: fit-content;
+    padding: 8px 8px 8px 20px;
+    display: flex;
+    justify-content: space-between;
     input{
         font-family: 'Inter';
         background: none;
         border: none;
+        width: 80%;
         &:focus{
             outline: none !important;
         }
