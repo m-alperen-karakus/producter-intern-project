@@ -6,7 +6,7 @@ export default function Form() {
   const taskInput = useRef(null);
 
   function addTask() {
-    if (taskInput.current.value == "") {
+    if (taskInput.current.value === "") {
       alert("Please enter text for task");
     } else {
       AddTask({ text: taskInput.current.value, isComplated: false })
