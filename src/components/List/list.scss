@@ -5,16 +5,16 @@
   flex-direction: column;
   gap: 24px;
 
-    .complated{
-        color: #8F98A8 !important;
-        text-decoration: line-through;
-        .circle{
-            background: #00d8a7;
-            img{
-                display: block !important;
-            }
-        }
+  .complated {
+    color: #8f98a8 !important;
+    text-decoration: line-through;
+    .circle {
+      background: #00d8a7;
+      img {
+        display: block !important;
+      }
     }
+  }
   .task {
     display: flex;
     align-items: center;
@@ -42,5 +42,20 @@
 
       color: #2d70fd;
     }
+  }
+}
+hr{
+  border: 1px solid #EEEEEE;
+}
+
+.buttonGroup {
+  color: #b1bacb;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-around;
+
+  div:hover{
+    color: #2d70fd;
+    cursor: pointer;
   }
 }

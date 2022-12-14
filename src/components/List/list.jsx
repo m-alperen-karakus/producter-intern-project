@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Icon from "../../assets/listItemComplatedIcon.svg";
-import { GetTasks, UpdateTask } from "../../services/crud.service";
+import { DeleteTask, GetTasks, UpdateTask } from "../../services/crud.service";
 import "./list.scss";
 export default function List() {
   const db = GetTasks();
@@ -57,6 +57,13 @@ export default function List() {
   return (
     <div>
       <ul className="tasks">{tasks}</ul>
+      <hr />
+      <div className="buttonGroup">
+        <div className="listLength">{data.filter( item => item.isComplated).length} task complated</div>
+        <div style={{ "cursor":"pointer" }} onClick={()=>{
+          DeleteTask().then(()=> console.log("Complated tasks has been deleted")).catch((err)=> console.log(err))
+        }}>Clear all complated tasks</div>
+      </div>
     </div>
   );
 }

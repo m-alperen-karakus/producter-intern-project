@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { app, db } from "../firebase";
-import { addDoc, collection, deleteDoc, doc, onSnapshot, updateDoc } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, onSnapshot, query, updateDoc, where , getDocs} from "firebase/firestore";
 
 export const GetTasks = () => {
   const [tasks, setTasks] = useState([]);
@@ -23,11 +23,14 @@ export const AddTask = async (data) => {
   return await addDoc(collectionPath, data);
 };
 
-export const DeleteTask = (id) => {
-  const documentPath = doc(db, "tasks", id);
-  deleteDoc(documentPath).then(() => {
-    console.log("item deleted");
-  });
+export const DeleteTask = async () => {
+    const collectionPath = collection(db, "tasks");
+    const q = query(collectionPath,where("isComplated","==",true))
+    const snapshot = (await getDocs(q)).docs.map( (doc) =>({ ...doc.data(), id:doc.id }))
+    return snapshot.forEach( async (task) => {
+        const docRef = doc(db,"tasks", task.id)
+        await deleteDoc(docRef)
+    })
 };
 
 export const UpdateTask = (id, data) => {
