@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Icon from "../../assets/listItemComplatedIcon.svg";
-import { GetTasks } from "../../services/crud.service";
+import { GetTasks, UpdateTask } from "../../services/crud.service";
 import "./list.scss";
 export default function List() {
   const db = GetTasks();
@@ -13,12 +13,12 @@ export default function List() {
     let task02 = data;
     task02.map((task) => {
       if (id === task.id) {
-        task.isComplated = !task.isComplated;
+        UpdateTask(id, { isComplated: !task.isComplated })
+          .then(() => console.log("Status has been chanced"))
+          .catch((err) => console.log(err));
       }
     });
-
     setData(task02);
-    console.log(data);
   };
 
   const tasks = data.map((task) => {
