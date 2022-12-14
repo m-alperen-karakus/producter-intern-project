@@ -1,18 +1,21 @@
-import { AddTask, DeleteTask } from "../../services/crud.service"
-import "./form.scss"
+import { useRef } from "react";
+import { AddTask, GetTasks } from "../../services/crud.service";
+import "./form.scss";
 
-export default function Form(props){
+export default function Form() {
+  const taskInput = useRef(null);
 
-    // AddTask({
-    //     text:"sdkjasdlas",
-    //     isComplated:false
-    // })
-    DeleteTask("W9Eb4TZ9DWi49g0lxCFB")
-    return (
-        <div className="form">
-            <input placeholder="Add new button" />
-            <button>Add</button>
-        </div>
-    )
-
+  function addTask() {
+    AddTask({ text: taskInput.current.value, isComplated: false })
+      .then(() => {
+        console.log("Data has been added");
+      })
+      .catch((err) => console.log(err));
+  }
+  return (
+    <div className="form">
+      <input placeholder="Add new list item" ref={taskInput} />
+      <button onClick={() => {addTask()}}>Add</button>
+    </div>
+  );
 }

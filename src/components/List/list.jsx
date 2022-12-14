@@ -1,41 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Icon from "../../assets/listItemComplatedIcon.svg";
 import { GetTasks } from "../../services/crud.service";
 import "./list.scss";
-export default function List(props) {
-  const task = [
-    {
-      id: 1,
-      isComplated: false,
-      text: "New list item",
-    },
-    {
-      id: 2,
-      isComplated: true,
-      text: "New list item(Done)",
-    },
-    {
-      id: 3,
-      isComplated: false,
-      text: "New list item(Hover)",
-    },
-  ];
-
-  const [task01, setTask] = useState(task);
+export default function List() {
+  const db = GetTasks();
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    setData(db);
+  }, [db]);
 
   const updateStatus = (id) => {
-    let task02 = task01;
+    let task02 = data;
     task02.map((task) => {
       if (id === task.id) {
         task.isComplated = !task.isComplated;
       }
     });
 
-    setTask(task02);
-    console.log(task01);
+    setData(task02);
+    console.log(data);
   };
 
-  const tasks = task01.map((task) => {
+  const tasks = data.map((task) => {
     if (task.isComplated) {
       return (
         <li
@@ -68,7 +54,6 @@ export default function List(props) {
       );
     }
   });
-  console.log(GetTasks())  
   return (
     <div>
       <ul className="tasks">{tasks}</ul>
